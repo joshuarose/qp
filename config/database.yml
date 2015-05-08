@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: qp_development
+
+test:
+  <<: *default
+  database: qp_test
+
+production:
+  <<: *default
+  database: qp_production
+  username: dba
+  password: <%= ENV['QP_DATABASE_PASSWORD'] %>
